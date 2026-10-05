@@ -2,58 +2,240 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lấy Học Bổng</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f5f5f7">
+<title>Ôn Chắc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f7f5ef;--card:#fffdf8;--ink:#12263a;--muted:#4a5a6a;--line:#ddd8ca;--accent:#137a74}
-@media (prefers-color-scheme:dark){:root{--bg:#10202e;--card:#172b3b;--ink:#eef2f5;--muted:#a9bccb;--line:#2a4256;--accent:#4fc3bb}}
+:root{
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,"Segoe UI",Roboto,Arial,sans-serif;
+  --blue:#0071e3;--blue-hover:#0077ed;
+  --nav-h:48px;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
-main{max-width:960px;margin:0 auto;padding:32px 20px 56px}
-h1{font-size:clamp(1.7rem,4vw,2.4rem);margin:0 0 6px}
-.sub{color:var(--muted);margin:0 0 28px}
-h2{font-size:1.15rem;color:var(--accent);margin:28px 0 12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-a.card{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-a.card:hover,a.card:focus-visible{border-color:var(--accent);outline:none}
-.card b{display:block;font-size:1.05rem;margin-bottom:4px}
-.card span{color:var(--muted);font-size:.92rem}
-footer{margin-top:36px;color:var(--muted);font-size:.9rem}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--font);color:#1d1d1f;background:#fff;line-height:1.47;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+a{color:inherit}
+
+/* ---------- Thanh điều hướng ---------- */
+.nav{position:sticky;top:0;z-index:20;height:var(--nav-h);background:rgba(245,245,247,.8);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.08)}
+.nav-in{max-width:1080px;height:100%;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left));display:flex;align-items:center;gap:28px}
+.brand{font-weight:600;font-size:17px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.links{display:flex;gap:24px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.links::-webkit-scrollbar{display:none}
+.links a{font-size:13px;color:#424245;text-decoration:none;white-space:nowrap;padding:6px 0}
+.links a:hover{color:#000}
+.nav a:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+
+/* ---------- Hero ---------- */
+.hero{background:linear-gradient(#f5f5f7,#fbfbfd);text-align:center;padding:72px 20px 0;overflow:hidden;position:relative}
+h1{margin:0;font-size:clamp(52px,11vw,128px);line-height:1.1;font-weight:700;letter-spacing:-.04em;color:#1d1d1f}
+.sub{max-width:640px;margin:14px auto 0;font-size:clamp(19px,2.6vw,28px);line-height:1.25;font-weight:500;letter-spacing:-.01em;color:#6e6e73}
+.stage{position:relative;height:clamp(340px,56vw,500px);margin-top:56px;display:flex;justify-content:center;align-items:flex-start}
+.stage::before{content:"";position:absolute;left:50%;top:18%;width:min(720px,110%);aspect-ratio:1;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(0,113,227,.16),rgba(0,113,227,0));pointer-events:none}
+
+/* Chiếc điện thoại minh họa (chỉ hình, không có chữ) */
+.phone{position:relative;width:min(300px,70vw);aspect-ratio:9/19.3;border-radius:54px;padding:9px;background:linear-gradient(145deg,#a1a1a6,#48484a 38%,#1c1c1e 70%,#636366);box-shadow:0 50px 90px -30px rgba(0,0,0,.45),0 0 0 1px rgba(0,0,0,.25),inset 0 0 0 1.5px rgba(255,255,255,.3)}
+.screen{position:relative;height:100%;border-radius:45px;overflow:hidden;background:linear-gradient(170deg,#1b1b1f,#0a0a0c);padding:62px 16px 16px}
+.island{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:86px;height:26px;border-radius:20px;background:#000}
+.bar{height:15px;border-radius:8px;background:rgba(255,255,255,.92);width:56%}
+.bar.s{height:10px;width:38%;margin-top:9px;background:rgba(255,255,255,.35)}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.mini span{aspect-ratio:1/.86;border-radius:18px;display:flex;align-items:flex-start;padding:11px;color:#fff;background:linear-gradient(145deg,var(--a),var(--b))}
+.mini span:last-child{grid-column:1/-1;aspect-ratio:auto;height:78px}
+.mini svg{width:24px;height:24px}
+
+/* ---------- Các mảng môn học ---------- */
+.band{padding:104px 20px 112px;text-align:center}
+.band h2{margin:0 0 52px;font-size:clamp(34px,6vw,64px);line-height:1.15;font-weight:700;letter-spacing:-.035em}
+.grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;text-align:left}
+.grid.one{max-width:540px;grid-template-columns:1fr}
+
+.t-light{background:#fff;--tile:#f5f5f7;--ink:#1d1d1f;--muted:#6e6e73}
+.t-gray{background:#f5f5f7;--tile:#fff;--ink:#1d1d1f;--muted:#6e6e73}
+.t-dark{background:#000;--tile:#1d1d1f;--ink:#f5f5f7;--muted:#a1a1a6}
+.band h2{color:var(--ink)}
+
+.c-geo{--a:#ff9f0a;--b:#ff5e00}
+.c-kv{--a:#bf5af2;--b:#5e5ce6}
+.c-trac{--a:#30d158;--b:#00a08a}
+.c-triet{--a:#ff6482;--b:#ff2d55}
+.c-khdl{--a:#40a9ff;--b:#0a6cff}
+
+.card{position:relative;display:flex;flex-direction:column;min-height:280px;padding:32px 32px 88px;border-radius:30px;background:var(--tile);color:var(--ink);text-decoration:none;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.card:hover{transform:scale(1.015)}
+.card:focus-visible{outline:4px solid var(--blue);outline-offset:3px}
+.ico{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,var(--a),var(--b));margin-bottom:auto;box-shadow:0 8px 20px -8px var(--b)}
+.ico svg{width:28px;height:28px}
+.card b{display:block;margin-top:40px;font-size:clamp(26px,3.4vw,34px);line-height:1.15;font-weight:700;letter-spacing:-.02em}
+.card .d{display:block;margin-top:6px;font-size:19px;line-height:1.3;color:var(--muted);font-weight:500}
+.go{position:absolute;right:24px;bottom:24px;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;transition:background .2s}
+.go svg{width:18px;height:18px}
+.card:hover .go{background:var(--blue-hover)}
+
+/* ---------- Chân trang ---------- */
+footer{background:#f5f5f7;color:#6e6e73;font-size:13px;line-height:1.5;padding:28px 20px calc(36px + env(safe-area-inset-bottom));text-align:center;border-top:1px solid rgba(0,0,0,.08)}
+footer p{max-width:760px;margin:0 auto}
+
+/* ---------- Glyph dùng chung ---------- */
+.g{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- Chuyển động: một đoạn mở đầu duy nhất ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .rise{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+  .rise.d1{animation-delay:.12s}
+  .rise.d2{animation-delay:.3s;animation-duration:1.2s}
+  @keyframes rise{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}.card:hover{transform:none}}
+
+/* ---------- Chế độ tối ---------- */
+@media (prefers-color-scheme:dark){
+  body{background:#000;color:#f5f5f7}
+  .nav{background:rgba(29,29,31,.8);border-bottom-color:rgba(255,255,255,.1)}
+  .links a{color:#a1a1a6}.links a:hover{color:#fff}
+  .hero{background:linear-gradient(#1d1d1f,#000)}
+  h1{color:#f5f5f7}
+  .sub{color:#a1a1a6}
+  .stage::before{background:radial-gradient(closest-side,rgba(10,132,255,.28),rgba(10,132,255,0))}
+  .t-light{background:#000;--tile:#161618;--ink:#f5f5f7;--muted:#a1a1a6}
+  .t-gray{background:#1d1d1f;--tile:#2c2c2e;--ink:#f5f5f7;--muted:#a1a1a6}
+  .t-dark{background:#131315;--tile:#232326}
+  footer{background:#1d1d1f;color:#a1a1a6;border-top-color:rgba(255,255,255,.1)}
+}
+
+@media (max-width:640px){
+  .nav-in{gap:16px}
+  .brand{font-size:15px}
+  .hero{padding-top:48px}
+  .band{padding:72px 16px 80px}
+  .band h2{margin-bottom:36px}
+  .card{min-height:240px;padding:26px 26px 80px;border-radius:26px}
+}
 </style>
 </head>
 <body>
-<main>
-<h1>Lấy Học Bổng</h1>
-<p class="sub">Chọn môn rồi học hoặc làm quiz ngay trên điện thoại hay máy tính.</p>
 
-<h2>Địa chất</h2>
-<div class="grid">
-<a class="card" href="Dia-chat-kien-truc-hoc-tap.html"><b>Địa chất kiến trúc</b><span>Học tương tác</span></a>
-</div>
-<h2> Khoáng vật</h2>
-<div class="grid">
-<a class="card" href="khoang-vat-thach-hoc.html"><b>Khoáng vật và Thạch học</b><span>Học tương tác</span></a>
-<a class="card" href="QuizKV.html"><b>Khoáng vật</b><span>Quiz Master</span></a>
-</div>
+<!-- Bộ biểu tượng -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-geo" viewBox="0 0 24 24"><path d="M2 20 9 7l4.5 8 2.5-4 6 9z"/></symbol>
+  <symbol id="i-kv" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M9 3 6 9l6 12 6-12-3-6"/></symbol>
+  <symbol id="i-trac" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></symbol>
+  <symbol id="i-triet" viewBox="0 0 24 24"><path d="M5 4h14v15H7a2 2 0 0 0-2 2z"/><path d="M5 19V4"/></symbol>
+  <symbol id="i-khdl" viewBox="0 0 24 24"><path d="M5 20v-9M12 20V4M19 20v-7" style="stroke-width:3"/></symbol>
+  <symbol id="i-go" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" style="stroke-width:2.4"/></symbol>
+</svg>
 
-<h2>Trắc địa</h2>
-<div class="grid">
-<a class="card" href="trac-dia-cong-trinh.html"><b>Trắc địa công trình</b><span>Học tương tác</span></a>
-</div>
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">Ôn Chắc</a>
+    <nav class="links" aria-label="Các môn học">
+      <a href="#dia-chat">Địa chất</a>
+      <a href="#khoang-vat">Khoáng vật</a>
+      <a href="#trac-dia">Trắc địa</a>
+      <a href="#triet-hoc">Triết học</a>
+      <a href="#khoa-hoc-du-lieu">Khoa học dữ liệu</a>
+    </nav>
+  </div>
+</header>
 
-<h2>Triết học</h2>
-<div class="grid">
-<a class="card" href="triet-hoc-mac-lenin.html"><b>Triết học Mác – Lênin</b><span>Học tương tác, Chương 1 và 2</span></a>
-<a class="card" href="quiz-triet-hoc.html"><b>Triết học</b><span>Quiz Master</span></a>
-</div>
+<main id="top">
+  <section class="hero">
+    <h1 class="rise">Ôn Chắc</h1>
+    <p class="sub rise d1">Chọn môn rồi học hoặc làm quiz ngay trên điện thoại hay máy tính.</p>
+    <div class="stage" aria-hidden="true">
+      <div class="phone rise d2">
+        <div class="screen">
+          <div class="island"></div>
+          <div class="bar"></div><div class="bar s"></div>
+          <div class="mini">
+            <span style="--a:#ff9f0a;--b:#ff5e00"><svg class="g"><use href="#i-geo"/></svg></span>
+            <span style="--a:#bf5af2;--b:#5e5ce6"><svg class="g"><use href="#i-kv"/></svg></span>
+            <span style="--a:#30d158;--b:#00a08a"><svg class="g"><use href="#i-trac"/></svg></span>
+            <span style="--a:#ff6482;--b:#ff2d55"><svg class="g"><use href="#i-triet"/></svg></span>
+            <span style="--a:#40a9ff;--b:#0a6cff"><svg class="g"><use href="#i-khdl"/></svg></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h2>Khoa học dữ liệu</h2>
-<div class="grid">
-<a class="card" href="khoa-hoc-du-lieu.html"><b>Khoa học dữ liệu</b><span>Học tương tác</span></a>
-<a class="card" href="ge1027-on-thi-khoa-hoc-du-lieu.html"><b>GE1027 Data Science</b><span>Ôn tập và thi thử</span></a>
-</div>
+  <section class="band t-light c-geo" id="dia-chat">
+    <h2>Địa chất</h2>
+    <div class="grid one">
+      <a class="card" href="Dia-chat-kien-truc-hoc-tap.html">
+        <span class="ico"><svg class="g" aria-hidden="true"><use href="#i-geo"/></svg></span>
+        <b>Địa chất kiến trúc</b><span class="d">Học tương tác</span>
+        <span class="go" aria-hidden="true"><svg class="g"><use href="#i-go"/></svg></span>
+      </a>
+    </div>
+  </section>
 
-<footer>Tiến độ học được lưu ngay trên trình duyệt của bạn, nên hãy dùng cùng một thiết bị và trình duyệt để xem lại.</footer>
+  <section class="band t-dark c-kv" id="khoang-vat">
+    <h2>Khoáng vật</h2>
+    <div class="grid">
+      <a class="card" href="khoang-vat-thach-hoc.html">
+        <span class="ico"><svg class="g" aria-hidden="true"><use href="#i-kv"/></svg></span>
+        <b>Khoáng vật và Thạch học</b><span class="d">Học tương tác</span>
+        <span class="go" aria-hidden="true"><svg class="g"><use href="#i-go"/></svg></span>
+      </a>
+      <a class="card" href="QuizKV.html">
+        <span class="ico"><svg class="g" aria-hidden="true"><use href="#i-kv"/></svg></span>
+        <b>Khoáng vật</b><span class="d">Quiz Master</span>
+        <span class="go" aria-hidden="true"><svg class="g"><use href="#i-go"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="band t-gray c-trac" id="trac-dia">
+    <h2>Trắc địa</h2>
+    <div class="grid one">
+      <a class="card" href="trac-dia-cong-trinh.html">
+        <span class="ico"><svg class="g" aria-hidden="true"><use href="#i-trac"/></svg></span>
+        <b>Trắc địa công trình</b><span class="d">Học tương tác</span>
+        <span class="go" aria-hidden="true"><svg class="g"><use href="#i-go"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="band t-dark c-triet" id="triet-hoc">
+    <h2>Triết học</h2>
+    <div class="grid">
+      <a class="card" href="triet-hoc-mac-lenin.html">
+        <span class="ico"><svg class="g" aria-hidden="true"><use href="#i-triet"/></svg></span>
+        <b>Triết học Mác – Lênin</b><span class="d">Học tương tác, Chương 1 và 2</span>
+        <span class="go" aria-hidden="true"><svg class="g"><use href="#i-go"/></svg></span>
+      </a>
+      <a class="card" href="quiz-triet-hoc.html">
+        <span class="ico"><svg class="g" aria-hidden="true"><use href="#i-triet"/></svg></span>
+        <b>Triết học</b><span class="d">Quiz Master</span>
+        <span class="go" aria-hidden="true"><svg class="g"><use href="#i-go"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="band t-light c-khdl" id="khoa-hoc-du-lieu">
+    <h2>Khoa học dữ liệu</h2>
+    <div class="grid">
+      <a class="card" href="khoa-hoc-du-lieu.html">
+        <span class="ico"><svg class="g" aria-hidden="true"><use href="#i-khdl"/></svg></span>
+        <b>Khoa học dữ liệu</b><span class="d">Học tương tác</span>
+        <span class="go" aria-hidden="true"><svg class="g"><use href="#i-go"/></svg></span>
+      </a>
+      <a class="card" href="ge1027-on-thi-khoa-hoc-du-lieu.html">
+        <span class="ico"><svg class="g" aria-hidden="true"><use href="#i-khdl"/></svg></span>
+        <b>GE1027 Data Science</b><span class="d">Ôn tập và thi thử</span>
+        <span class="go" aria-hidden="true"><svg class="g"><use href="#i-go"/></svg></span>
+      </a>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <p>Tiến độ học được lưu ngay trên trình duyệt của bạn, nên hãy dùng cùng một thiết bị và trình duyệt để xem lại.</p>
+</footer>
+
 </body>
 </html>
